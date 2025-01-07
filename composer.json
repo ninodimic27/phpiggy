@@ -1,0 +1,20 @@
+{
+    "name": "administrator/phpiggy",
+    "description": "A PHP Application for tracking expenses.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "nino.dimic27",
+            "email": "ndpromarketing@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload":
+    {
+        "psr-4": 
+        {
+            "Framework\\": "src/Framework",
+            "App\\": "src/App"
+        }
+    }
+}
