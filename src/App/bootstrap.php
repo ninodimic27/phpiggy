@@ -1,15 +1,21 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 include __DIR__ . "/../../vendor/autoload.php";
 
 use Framework\App;
+use App\Config\Paths;
+use Dotenv\Dotenv;
 
-$app = new App;
+$dotenv = Dotenv::createImmutable(Paths::ROOT);
+$dotenv->load();
 
-$app->add('/');
+use function App\Config\{registerRoutes, registerMiddleware};
 
-dd($app);
+$app = new App(Paths::SOURCE . "App/container-definitions.php");
+
+registerRoutes($app);
+registerMiddleware($app);
 
 return $app;
